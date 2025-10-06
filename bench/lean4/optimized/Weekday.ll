@@ -2687,7 +2687,7 @@ define zeroext range(i8 0, 7) i8 @l_Std_Time_Weekday_next(i8 noundef zeroext %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef nonnull ptr @l_Std_Time_Weekday_next___boxed(ptr noundef %0) local_unnamed_addr #1 {
+define nonnull ptr @l_Std_Time_Weekday_next___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, 1
   %.not = icmp eq i64 %3, 0
@@ -2715,11 +2715,12 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
   %11 = lshr i64 %2, 1
   %12 = trunc i64 %11 to i8
   %13 = icmp ult i8 %12, 6
-  %switch.idx.mult = and i64 %2, 510
-  %switch.offset = add nuw nsw i64 %switch.idx.mult, 3
-  %14 = inttoptr i64 %switch.offset to ptr
-  %15 = select i1 %13, ptr %14, ptr inttoptr (i64 1 to ptr)
-  ret ptr %15
+  %14 = add i64 %2, 2
+  %15 = and i64 %14, 510
+  %16 = or disjoint i64 %15, 1
+  %17 = inttoptr i64 %16 to ptr
+  %18 = select i1 %13, ptr %17, ptr inttoptr (i64 1 to ptr)
+  ret ptr %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

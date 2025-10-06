@@ -556,8 +556,8 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit: ; preds = %100, %114, 
   %121 = call noundef i64 @_ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS2_10second_tagEEES5_(i64 %110, i64 %.sroa.2.0.copyload, i64 1970, i64 257) #25
   %122 = call noundef i32 @_ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE(ptr noundef nonnull align 8 dereferenceable(16) %6) #25
   %123 = icmp ult i32 %122, 6
-  %switch.offset = add nsw i32 %122, 1
-  %.0.i51 = select i1 %123, i32 %switch.offset, i32 0
+  %switch.offset.i = add nuw nsw i32 %122, 1
+  %.0.i51 = select i1 %123, i32 %switch.offset.i, i32 0
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !62
   %124 = getelementptr inbounds nuw i8, ptr %7, i64 8

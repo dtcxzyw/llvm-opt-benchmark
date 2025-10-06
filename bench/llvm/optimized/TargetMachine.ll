@@ -1309,26 +1309,25 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13TargetMachine10useTLSDESCEv(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 4) i32 @_ZNK4llvm13TargetMachine11getTLSModelEPKNS_11GlobalValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1264) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-switch.lookup:
-  %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !198
-  %4 = tail call noundef i32 @_ZNK4llvm6Module11getPIELevelEv(ptr noundef nonnull align 8 dereferenceable(841) %3) #21
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %6 = load i32, ptr %5, align 8, !tbaa !66
-  %7 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine20shouldAssumeDSOLocalEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(1264) %0, ptr noundef nonnull %1)
-  %8 = getelementptr i8, ptr %1, i64 32
-  %.val = load i32, ptr %8, align 8
-  %9 = lshr i32 %.val, 10
-  %10 = and i32 %9, 7
-  %switch.tableidx = add nsw i32 %10, -1
-  %11 = icmp eq i32 %6, 1
-  %.not = icmp eq i32 %4, 0
-  %12 = and i1 %.not, %11
-  %. = zext i1 %7 to i32
-  %.15 = select i1 %7, i32 3, i32 2
-  %.013 = select i1 %12, i32 %., i32 %.15
-  %.0 = tail call i32 @llvm.umax.i32(i32 %switch.tableidx, i32 %.013)
+define dso_local noundef range(i32 0, 7) i32 @_ZNK4llvm13TargetMachine11getTLSModelEPKNS_11GlobalValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1264) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %4 = load ptr, ptr %3, align 8, !tbaa !198
+  %5 = tail call noundef i32 @_ZNK4llvm6Module11getPIELevelEv(ptr noundef nonnull align 8 dereferenceable(841) %4) #21
+  %.not = icmp eq i32 %5, 0
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %7 = load i32, ptr %6, align 8, !tbaa !66
+  %8 = icmp eq i32 %7, 1
+  %9 = and i1 %.not, %8
+  %10 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine20shouldAssumeDSOLocalEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(1264) %0, ptr noundef nonnull %1)
+  %. = zext i1 %10 to i32
+  %.15 = select i1 %10, i32 3, i32 2
+  %.013 = select i1 %9, i32 %., i32 %.15
+  %11 = getelementptr i8, ptr %1, i64 32
+  %.val = load i32, ptr %11, align 8
+  %12 = lshr i32 %.val, 10
+  %13 = and i32 %12, 7
+  %switch.tableidx.i = add nsw i32 %13, -1
+  %.0 = tail call i32 @llvm.umax.i32(i32 %switch.tableidx.i, i32 %.013)
   ret i32 %.0
 }
 

@@ -25410,53 +25410,51 @@ define noundef zeroext i1 @"_ZN12polars_arrow6scalar5equal155_$LT$impl$u20$core.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i8 1, 8) i8 @_ZN12polars_arrow7compute8temporal11Int8Weekday10i8_weekday17h159db35d9dcfb4ffE(ptr noalias noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-switch.lookup:
-  %1 = alloca [12 x i8], align 4
   %2 = alloca [12 x i8], align 4
+  %3 = alloca [12 x i8], align 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5886
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !5886
-  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !5886
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %3, i64 12, i1 false)
-  %4 = tail call noundef i32 @"_ZN77_$LT$chrono_tz..timezone_impl..TzOffset$u20$as$u20$chrono..offset..Offset$GT$3fix17hc3593d3f81e58c6cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
-  call void @_ZN6chrono5naive8datetime13NaiveDateTime22overflowing_add_offset17hf945d330e8ff48aeE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %1, i32 noundef %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !5886
-  %5 = load i32, ptr %2, align 4, !range !5889, !noalias !5886, !noundef !12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %4, i64 12, i1 false)
+  %5 = tail call noundef i32 @"_ZN77_$LT$chrono_tz..timezone_impl..TzOffset$u20$as$u20$chrono..offset..Offset$GT$3fix17hc3593d3f81e58c6cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  call void @_ZN6chrono5naive8datetime13NaiveDateTime22overflowing_add_offset17hf945d330e8ff48aeE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %3, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %2, i32 noundef %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !5886
+  %6 = load i32, ptr %3, align 4, !range !5889, !noalias !5886, !noundef !12
+  %7 = lshr i32 %6, 4
+  %8 = and i32 %7, 511
+  %9 = and i32 %6, 7
+  %10 = add nuw nsw i32 %8, %9
+  %.lhs.trunc.i = trunc nuw nsw i32 %10 to i16
+  %11 = urem i16 %.lhs.trunc.i, 7
+  %switch.idx.cast.i = trunc nuw nsw i16 %11 to i8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !5886
+  %narrow = add nuw nsw i8 %switch.idx.cast.i, 1
+  ret i8 %narrow
+}
+
+; Function Attrs: nonlazybind uwtable
+define hidden noundef range(i8 1, 8) i8 @_ZN12polars_arrow7compute8temporal11Int8Weekday10i8_weekday17he57f0fa4cd1c8b87E(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %2 = alloca [12 x i8], align 4
+  %3 = alloca [12 x i8], align 4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !5890)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5890
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !5890
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull readonly align 4 dereferenceable(16) %0, i64 12, i1 false)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.val.i = load i32, ptr %4, align 4, !alias.scope !5890, !noundef !12
+  call void @_ZN6chrono5naive8datetime13NaiveDateTime22overflowing_add_offset17hf945d330e8ff48aeE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %3, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %2, i32 noundef %.val.i), !noalias !5890
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !5890
+  %5 = load i32, ptr %3, align 4, !range !5889, !noalias !5890, !noundef !12
   %6 = lshr i32 %5, 4
   %7 = and i32 %6, 511
   %8 = and i32 %5, 7
   %9 = add nuw nsw i32 %7, %8
   %.lhs.trunc.i = trunc nuw nsw i32 %9 to i16
   %10 = urem i16 %.lhs.trunc.i, 7
-  %switch.idx.cast = trunc nuw nsw i16 %10 to i8
-  %switch.offset = add nuw nsw i8 %switch.idx.cast, 1
-  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !5886
-  ret i8 %switch.offset
-}
-
-; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i8 1, 8) i8 @_ZN12polars_arrow7compute8temporal11Int8Weekday10i8_weekday17he57f0fa4cd1c8b87E(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-switch.lookup:
-  %1 = alloca [12 x i8], align 4
-  %2 = alloca [12 x i8], align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !5890)
-  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !5890
-  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !5890
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull readonly align 4 dereferenceable(16) %0, i64 12, i1 false)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.val.i = load i32, ptr %3, align 4, !alias.scope !5890, !noundef !12
-  call void @_ZN6chrono5naive8datetime13NaiveDateTime22overflowing_add_offset17hf945d330e8ff48aeE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %1, i32 noundef %.val.i), !noalias !5890
-  call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !5890
-  %4 = load i32, ptr %2, align 4, !range !5889, !noalias !5890, !noundef !12
-  %5 = lshr i32 %4, 4
-  %6 = and i32 %5, 511
-  %7 = and i32 %4, 7
-  %8 = add nuw nsw i32 %6, %7
-  %.lhs.trunc.i = trunc nuw nsw i32 %8 to i16
-  %9 = urem i16 %.lhs.trunc.i, 7
-  %switch.idx.cast = trunc nuw nsw i16 %9 to i8
-  %switch.offset = add nuw nsw i8 %switch.idx.cast, 1
-  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !5890
-  ret i8 %switch.offset
+  %switch.idx.cast.i = trunc nuw nsw i16 %10 to i8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !5890
+  %narrow = add nuw nsw i8 %switch.idx.cast.i, 1
+  ret i8 %narrow
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -6986,11 +6986,10 @@ _ZN6diesel2pg10connection3raw9RawResult3new17ha39e40f55701d273E.llvm.26482893445
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i8 0, 5) i8 @_ZN6diesel2pg10connection3raw13RawConnection18transaction_status17h93f1059108214522E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
-switch.lookup:
-  %1 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %2 = tail call noundef i32 @PQtransactionStatus(ptr noundef nonnull %1), !range !1233
-  %switch.idx.cast = trunc nuw i32 %2 to i8
-  ret i8 %switch.idx.cast
+  %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %3 = tail call noundef i32 @PQtransactionStatus(ptr noundef nonnull %2), !range !1233
+  %switch.idx.cast.i = trunc nuw nsw i32 %3 to i8
+  ret i8 %switch.idx.cast.i
 }
 
 ; Function Attrs: nonlazybind uwtable

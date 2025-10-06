@@ -2837,11 +2837,10 @@ switch.lookup:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef range(i64 1, 5) i64 @_ZN12regex_syntax4utf812Utf8Sequence3len17hd050a573887f5bd8E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(9) %0) unnamed_addr #4 {
-switch.lookup:
-  %1 = load i8, ptr %0, align 1, !range !433, !alias.scope !434, !noundef !4
-  %narrow = add nuw nsw i8 %1, 1
-  %switch.offset = zext nneg i8 %narrow to i64
-  ret i64 %switch.offset
+  %2 = load i8, ptr %0, align 1, !range !433, !alias.scope !434, !noundef !4
+  %narrow.i = add nuw nsw i8 %2, 1
+  %switch.offset.i = zext nneg i8 %narrow.i to i64
+  ret i64 %switch.offset.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -2929,54 +2928,49 @@ default.unreachable13:                            ; preds = %1
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN12regex_syntax4utf812Utf8Sequence7matches17h38d93a168ede3747E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(9) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #12 personality ptr @rust_eh_personality {
-switch.lookup:
-  %3 = load i8, ptr %0, align 1, !range !433, !alias.scope !485, !noundef !4
-  %narrow = add nuw nsw i8 %3, 1
-  %switch.offset = zext nneg i8 %narrow to i64
-  %4 = icmp ult i64 %2, %switch.offset
-  br i1 %4, label %.loopexit, label %switch.lookup12
+  %4 = load i8, ptr %0, align 1, !range !433, !alias.scope !485, !noundef !4
+  %narrow.i.i = add nuw nsw i8 %4, 1
+  %switch.offset.i.i = zext nneg i8 %narrow.i.i to i64
+  %5 = icmp ult i64 %2, %switch.offset.i.i
+  br i1 %5, label %.loopexit, label %6
 
-switch.lookup12:                                  ; preds = %switch.lookup
-  %narrow15 = add nuw nsw i8 %3, 1
-  %switch.offset14 = zext nneg i8 %narrow15 to i64
+6:                                                ; preds = %3
   %.sroa.0.0.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %switch.offset14)
-  br label %5
+  br label %7
 
-5:                                                ; preds = %6, %switch.lookup12
-  %.sroa.9.0 = phi i64 [ 0, %switch.lookup12 ], [ %7, %6 ]
-  %exitcond.not = icmp eq i64 %.sroa.9.0, %.0.sroa.speculated.i.i.i
-  br i1 %exitcond.not, label %.loopexit, label %6
+7:                                                ; preds = %8, %6
+  %.sroa.9.0 = phi i64 [ 0, %6 ], [ %9, %8 ]
+  %exitcond.not = icmp eq i64 %.sroa.9.0, %switch.offset.i.i
+  br i1 %exitcond.not, label %.loopexit, label %8
 
-6:                                                ; preds = %5
-  %7 = add nuw nsw i64 %.sroa.9.0, 1
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.9.0
-  %9 = getelementptr inbounds nuw { i8, i8 }, ptr %.sroa.0.0.i.i.i, i64 %.sroa.9.0
-  %10 = load i8, ptr %8, align 1, !noundef !4
-  %11 = load i8, ptr %9, align 1, !alias.scope !490, !noundef !4
-  %.not.i = icmp ule i8 %11, %10
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %13 = load i8, ptr %12, align 1, !alias.scope !490
-  %14 = icmp ule i8 %10, %13
-  %.0.i = select i1 %.not.i, i1 %14, i1 false
-  br i1 %.0.i, label %5, label %.loopexit
+8:                                                ; preds = %7
+  %9 = add nuw nsw i64 %.sroa.9.0, 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.9.0
+  %11 = getelementptr inbounds nuw { i8, i8 }, ptr %.sroa.0.0.i.i.i, i64 %.sroa.9.0
+  %12 = load i8, ptr %10, align 1, !noundef !4
+  %13 = load i8, ptr %11, align 1, !alias.scope !490, !noundef !4
+  %.not.i = icmp ule i8 %13, %12
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %15 = load i8, ptr %14, align 1, !alias.scope !490
+  %16 = icmp ule i8 %12, %15
+  %.0.i = select i1 %.not.i, i1 %16, i1 false
+  br i1 %.0.i, label %7, label %.loopexit
 
-.loopexit:                                        ; preds = %6, %5, %switch.lookup
-  %.0 = phi i1 [ false, %switch.lookup ], [ %exitcond.not, %5 ], [ %exitcond.not, %6 ]
+.loopexit:                                        ; preds = %8, %7, %3
+  %.0 = phi i1 [ false, %3 ], [ %exitcond.not, %7 ], [ %exitcond.not, %8 ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, ptr } @"_ZN98_$LT$$RF$regex_syntax..utf8..Utf8Sequence$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hc0ed4018f77bf324E"(ptr noalias noundef readonly align 1 dereferenceable(9) %0) unnamed_addr #4 {
-switch.lookup:
-  %1 = load i8, ptr %0, align 1, !range !433, !alias.scope !493, !noundef !4
+  %2 = load i8, ptr %0, align 1, !range !433, !alias.scope !493, !noundef !4
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %2 = zext nneg i8 %1 to i64
-  %3 = getelementptr inbounds nuw { i8, i8 }, ptr %.sroa.0.0.i, i64 %2
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %5 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %6 = insertvalue { ptr, ptr } %5, ptr %4, 1
-  ret { ptr, ptr } %6
+  %3 = zext nneg i8 %2 to i64
+  %4 = getelementptr inbounds nuw { i8, i8 }, ptr %.sroa.0.0.i, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %6 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
+  ret { ptr, ptr } %7
 }
 
 ; Function Attrs: nonlazybind uwtable

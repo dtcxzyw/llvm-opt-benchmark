@@ -23703,11 +23703,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16ElementWiseLayerINS0_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16ElementWiseLayerINS0_11CeilFunctorEE14supportBackendEi(ptr noundef nonnull align 8 dereferenceable(101) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
-_ZN2cv3dnn11CeilFunctor14supportBackendEii.exit:
-  %2 = icmp ult i32 %1, 6
-  %switch.idx.cast = trunc i32 %1 to i1
-  %3 = and i1 %2, %switch.idx.cast
-  ret i1 %3
+  %3 = icmp ult i32 %1, 6
+  %switch.idx.cast.i = trunc i32 %1 to i1
+  %4 = and i1 %3, %switch.idx.cast.i
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -25267,11 +25266,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16ElementWiseLayerINS0_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16ElementWiseLayerINS0_10LogFunctorEE14supportBackendEi(ptr noundef nonnull align 8 dereferenceable(101) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
-_ZN2cv3dnn10LogFunctor14supportBackendEii.exit:
-  %2 = icmp ult i32 %1, 6
-  %switch.idx.cast = trunc i32 %1 to i1
-  %3 = and i1 %2, %switch.idx.cast
-  ret i1 %3
+  %3 = icmp ult i32 %1, 6
+  %switch.idx.cast.i = trunc i32 %1 to i1
+  %4 = and i1 %3, %switch.idx.cast.i
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -26045,11 +26043,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16ElementWiseLayerINS0_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16ElementWiseLayerINS0_12RoundFunctorEE14supportBackendEi(ptr noundef nonnull align 8 dereferenceable(101) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
-_ZN2cv3dnn12RoundFunctor14supportBackendEii.exit:
-  %2 = icmp ult i32 %1, 6
-  %switch.idx.cast = trunc i32 %1 to i1
-  %3 = and i1 %2, %switch.idx.cast
-  ret i1 %3
+  %3 = icmp ult i32 %1, 6
+  %switch.idx.cast.i = trunc i32 %1 to i1
+  %4 = and i1 %3, %switch.idx.cast.i
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -26843,11 +26840,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16ElementWiseLayerINS0_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16ElementWiseLayerINS0_11SqrtFunctorEE14supportBackendEi(ptr noundef nonnull align 8 dereferenceable(101) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
-_ZN2cv3dnn11SqrtFunctor14supportBackendEii.exit:
-  %2 = icmp ult i32 %1, 6
-  %switch.idx.cast = trunc i32 %1 to i1
-  %3 = and i1 %2, %switch.idx.cast
-  ret i1 %3
+  %3 = icmp ult i32 %1, 6
+  %switch.idx.cast.i = trunc i32 %1 to i1
+  %4 = and i1 %3, %switch.idx.cast.i
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -27624,11 +27620,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16ElementWiseLayerINS0_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16ElementWiseLayerINS0_10NotFunctorEE14supportBackendEi(ptr noundef nonnull align 8 dereferenceable(101) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
-_ZN2cv3dnn10NotFunctor14supportBackendEii.exit:
-  %2 = icmp ult i32 %1, 6
-  %switch.idx.cast = trunc i32 %1 to i1
-  %3 = and i1 %2, %switch.idx.cast
-  ret i1 %3
+  %3 = icmp ult i32 %1, 6
+  %switch.idx.cast.i = trunc i32 %1 to i1
+  %4 = and i1 %3, %switch.idx.cast.i
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -43343,11 +43338,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16ElementWiseLayerINS0_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16ElementWiseLayerINS0_12PowerFunctorEE14supportBackendEi(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
-_ZN2cv3dnn12PowerFunctor14supportBackendEii.exit:
-  %2 = icmp ult i32 %1, 6
-  %switch.idx.cast = trunc i32 %1 to i1
-  %3 = and i1 %2, %switch.idx.cast
-  ret i1 %3
+  %3 = icmp ult i32 %1, 6
+  %switch.idx.cast.i = trunc i32 %1 to i1
+  %4 = and i1 %3, %switch.idx.cast.i
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

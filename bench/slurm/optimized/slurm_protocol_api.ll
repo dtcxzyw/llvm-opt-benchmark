@@ -1116,13 +1116,13 @@ define dso_local i32 @slurm_open_controller_conn_spec(i32 noundef %0, ptr nounde
 38:                                               ; preds = %34, %37, %31
   %39 = tail call ptr @__errno_location() #21
   %40 = load i32, ptr %39, align 4
-  %switch.tableidx = add i32 %40, -1001
-  %41 = icmp ult i32 %switch.tableidx, 4
-  br i1 %41, label %switch.lookup, label %_remap_slurmctld_errno.exit
+  %switch.tableidx.i = add i32 %40, -1001
+  %41 = icmp ult i32 %switch.tableidx.i, 4
+  br i1 %41, label %switch.lookup.i, label %_remap_slurmctld_errno.exit
 
-switch.lookup:                                    ; preds = %38
-  %switch.offset = add nuw nsw i32 %40, 799
-  store i32 %switch.offset, ptr %39, align 4
+switch.lookup.i:                                  ; preds = %38
+  %switch.offset.i = add nuw nsw i32 %40, 799
+  store i32 %switch.offset.i, ptr %39, align 4
   br label %_remap_slurmctld_errno.exit
 
 _remap_slurmctld_errno.exit.thread:               ; preds = %23, %21, %19
@@ -1130,7 +1130,7 @@ _remap_slurmctld_errno.exit.thread:               ; preds = %23, %21, %19
   store ptr %14, ptr %3, align 8
   br label %42
 
-_remap_slurmctld_errno.exit:                      ; preds = %38, %switch.lookup, %28
+_remap_slurmctld_errno.exit:                      ; preds = %switch.lookup.i, %38, %28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.018, ptr %3, align 8
   %.not.i = icmp eq ptr %.018, null
@@ -4479,16 +4479,16 @@ _send_and_recv_msg.exit:                          ; preds = %slurm_send_recv_msg
 123:                                              ; preds = %122
   %124 = tail call ptr @__errno_location() #21
   %125 = load i32, ptr %124, align 4
-  %switch.tableidx = add i32 %125, -1001
-  %126 = icmp ult i32 %switch.tableidx, 4
-  br i1 %126, label %switch.lookup, label %_remap_slurmctld_errno.exit
+  %switch.tableidx.i = add i32 %125, -1001
+  %126 = icmp ult i32 %switch.tableidx.i, 4
+  br i1 %126, label %switch.lookup.i, label %_remap_slurmctld_errno.exit
 
-switch.lookup:                                    ; preds = %123
-  %switch.offset = add nuw nsw i32 %125, 799
-  store i32 %switch.offset, ptr %124, align 4
+switch.lookup.i:                                  ; preds = %123
+  %switch.offset.i = add nuw nsw i32 %125, 799
+  store i32 %switch.offset.i, ptr %124, align 4
   br label %_remap_slurmctld_errno.exit
 
-_remap_slurmctld_errno.exit:                      ; preds = %123, %switch.lookup, %122
+_remap_slurmctld_errno.exit:                      ; preds = %switch.lookup.i, %123, %122
   ret i32 %.05872
 }
 
@@ -4827,17 +4827,17 @@ define dso_local range(i32 -1, 1) i32 @slurm_send_only_controller_msg(ptr nounde
 .thread:                                          ; preds = %2, %20
   %22 = tail call ptr @__errno_location() #21
   %23 = load i32, ptr %22, align 4
-  %switch.tableidx = add i32 %23, -1001
-  %24 = icmp ult i32 %switch.tableidx, 4
-  br i1 %24, label %switch.lookup, label %_remap_slurmctld_errno.exit
+  %switch.tableidx.i = add i32 %23, -1001
+  %24 = icmp ult i32 %switch.tableidx.i, 4
+  br i1 %24, label %switch.lookup.i, label %_remap_slurmctld_errno.exit
 
-switch.lookup:                                    ; preds = %.thread
-  %switch.offset = add nuw nsw i32 %23, 799
-  store i32 %switch.offset, ptr %22, align 4
+switch.lookup.i:                                  ; preds = %.thread
+  %switch.offset.i = add nuw nsw i32 %23, 799
+  store i32 %switch.offset.i, ptr %22, align 4
   br label %_remap_slurmctld_errno.exit
 
-_remap_slurmctld_errno.exit:                      ; preds = %.thread, %switch.lookup, %.thread14
-  %.013 = phi i32 [ 0, %.thread14 ], [ -1, %.thread ], [ -1, %switch.lookup ]
+_remap_slurmctld_errno.exit:                      ; preds = %switch.lookup.i, %.thread, %.thread14
+  %.013 = phi i32 [ 0, %.thread14 ], [ -1, %.thread ], [ -1, %switch.lookup.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.013
 }
