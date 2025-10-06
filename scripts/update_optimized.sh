@@ -17,7 +17,7 @@ then
     python3 scripts/update.py --comptime --no-diff --bench bench --out scripts/pr-comment.md
     mv comptime.log comptime_baseline.log
     git -C llvm/llvm-project apply --3way --exclude=*/test/* ../../patch.diff
-    if [ $? -eq 0 ]
+    if [ $? -ne 0 ]
     then
         echo "Patch does not apply" >> scripts/pr-comment.md
         exit 0
@@ -30,7 +30,7 @@ then
     python3 scripts/update.py --record-stat $STAT_NAME --stats --no-diff --bench bench --out scripts/pr-comment.md
     mv stat.log stat_baseline.log
     git -C llvm/llvm-project apply --3way --exclude=*/test/* ../../patch.diff
-    if [ $? -eq 0 ]
+    if [ $? -ne 0 ]
     then
         echo "Patch does not apply" >> scripts/pr-comment.md
         exit 0
@@ -40,7 +40,7 @@ then
     exit 0
 else
     git -C llvm/llvm-project apply --3way --exclude=*/test/* ../../patch.diff
-    if [ $? -eq 0 ]
+    if [ $? -ne 0 ]
     then
         echo "Patch does not apply" >> scripts/pr-comment.md
         exit 0
