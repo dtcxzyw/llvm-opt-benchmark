@@ -548,8 +548,8 @@ der_encode_length.exit:                           ; preds = %3
   %12 = add nuw nsw i64 %11, %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8, !tbaa !33
-  %.not101103 = icmp eq i64 %14, 0
-  br i1 %.not101103, label %._crit_edge, label %.lr.ph
+  %.not103105 = icmp eq i64 %14, 0
+  br i1 %.not103105, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %der_encode_length.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -557,21 +557,21 @@ der_encode_length.exit:                           ; preds = %3
   br label %19
 
 17:                                               ; preds = %19
-  %18 = add i64 %.0104, -1
-  %.not101 = icmp eq i64 %18, 0
-  br i1 %.not101, label %._crit_edge, label %19, !llvm.loop !35
+  %18 = add i64 %.0106, -1
+  %.not103 = icmp eq i64 %18, 0
+  br i1 %.not103, label %._crit_edge, label %19, !llvm.loop !35
 
 19:                                               ; preds = %.lr.ph, %17
-  %.0104 = phi i64 [ %14, %.lr.ph ], [ %18, %17 ]
-  %20 = getelementptr i8, ptr %16, i64 %.0104
+  %.0106 = phi i64 [ %14, %.lr.ph ], [ %18, %17 ]
+  %20 = getelementptr i8, ptr %16, i64 %.0106
   %21 = getelementptr i8, ptr %20, i64 -1
   %22 = load i8, ptr %21, align 1, !tbaa !36
   %.not = icmp eq i8 %22, 0
   br i1 %.not, label %17, label %.thread
 
 ._crit_edge:                                      ; preds = %17, %der_encode_length.exit
-  %.not102 = icmp eq i32 %2, 0
-  br i1 %.not102, label %37, label %.thread
+  %.not104 = icmp eq i32 %2, 0
+  br i1 %.not104, label %37, label %.thread
 
 .thread:                                          ; preds = %19, %._crit_edge
   %23 = icmp ult i64 %14, 32768
@@ -624,7 +624,7 @@ der_encode_length.exit52:                         ; preds = %37
   %48 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %47, ptr noundef nonnull @.str.8, i32 noundef 634) #7
   store ptr %48, ptr %1, align 8, !tbaa !15
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %142, label %50
+  br i1 %49, label %119, label %50
 
 50:                                               ; preds = %der_encode_length.exit52
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 1
@@ -632,7 +632,7 @@ der_encode_length.exit52:                         ; preds = %37
   br i1 %42, label %.thread.i55, label %52
 
 52:                                               ; preds = %50
-  br i1 %43, label %59, label %61
+  br i1 %43, label %der_encode_length.exit56, label %.sink.split.sink.split.i
 
 .thread.i55:                                      ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 2
@@ -640,186 +640,159 @@ der_encode_length.exit52:                         ; preds = %37
   %54 = lshr i64 %39, 8
   %55 = trunc nuw nsw i64 %54 to i8
   %56 = or disjoint i8 %55, -128
-  %57 = getelementptr inbounds nuw i8, ptr %48, i64 3
-  store i8 %56, ptr %53, align 1, !tbaa !36
-  %58 = trunc i64 %39 to i8
-  br label %der_encode_length.exit56
+  br label %.sink.split.sink.split.i
 
-59:                                               ; preds = %52
-  %60 = trunc nuw nsw i64 %39 to i8
-  br label %der_encode_length.exit56
-
-61:                                               ; preds = %52
-  %62 = getelementptr inbounds nuw i8, ptr %48, i64 2
-  store i8 1, ptr %51, align 1, !tbaa !36
-  %63 = trunc nuw i64 %39 to i8
-  %64 = or i8 %63, -128
-  br label %der_encode_length.exit56
-
-der_encode_length.exit56:                         ; preds = %.thread.i55, %59, %61
-  %.1 = phi ptr [ %57, %.thread.i55 ], [ %51, %59 ], [ %62, %61 ]
-  %.sink.i = phi i8 [ %58, %.thread.i55 ], [ %60, %59 ], [ %64, %61 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+.sink.split.sink.split.i:                         ; preds = %52, %.thread.i55
+  %.1 = phi ptr [ %53, %.thread.i55 ], [ %51, %52 ]
+  %.sink.i = phi i8 [ %56, %.thread.i55 ], [ 1, %52 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %.sink.i, ptr %.1, align 1, !tbaa !36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %65, ptr noundef nonnull align 1 dereferenceable(3) @__const.make_custom_der.t_true, i64 3, i1 false)
-  %66 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  %67 = getelementptr inbounds nuw i8, ptr %.1, i64 5
-  store i8 2, ptr %66, align 1, !tbaa !36
-  %68 = load i64, ptr %4, align 8, !tbaa !31
-  %69 = icmp ult i64 %68, 32768
-  br i1 %69, label %71, label %70
+  br label %der_encode_length.exit56
 
-70:                                               ; preds = %der_encode_length.exit56
+der_encode_length.exit56:                         ; preds = %52, %.sink.split.sink.split.i
+  %.2 = phi ptr [ %57, %.sink.split.sink.split.i ], [ %51, %52 ]
+  %58 = trunc i64 %39 to i8
+  %59 = getelementptr inbounds nuw i8, ptr %.2, i64 1
+  store i8 %58, ptr %.2, align 1, !tbaa !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %59, ptr noundef nonnull align 1 dereferenceable(3) @__const.make_custom_der.t_true, i64 3, i1 false)
+  %60 = getelementptr inbounds nuw i8, ptr %.2, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %.2, i64 5
+  store i8 2, ptr %60, align 1, !tbaa !36
+  %62 = load i64, ptr %4, align 8, !tbaa !31
+  %63 = icmp ult i64 %62, 32768
+  br i1 %63, label %65, label %64
+
+64:                                               ; preds = %der_encode_length.exit56
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.8, i32 noundef 570) #8
   unreachable
 
-71:                                               ; preds = %der_encode_length.exit56
-  %72 = icmp samesign ugt i64 %68, 255
-  br i1 %72, label %.thread.i61, label %73
+65:                                               ; preds = %der_encode_length.exit56
+  %66 = icmp samesign ugt i64 %62, 255
+  br i1 %66, label %.thread.i63, label %67
 
-73:                                               ; preds = %71
-  %74 = icmp samesign ult i64 %68, 128
-  br i1 %74, label %81, label %83
+67:                                               ; preds = %65
+  %68 = icmp samesign ult i64 %62, 128
+  br i1 %68, label %der_encode_length.exit64, label %.sink.split.sink.split.i58
 
-.thread.i61:                                      ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %.1, i64 6
-  store i8 2, ptr %67, align 1, !tbaa !36
-  %76 = lshr i64 %68, 8
-  %77 = trunc nuw nsw i64 %76 to i8
-  %78 = or disjoint i8 %77, -128
-  %79 = getelementptr inbounds nuw i8, ptr %.1, i64 7
-  store i8 %78, ptr %75, align 1, !tbaa !36
-  %80 = trunc i64 %68 to i8
-  br label %der_encode_length.exit62
+.thread.i63:                                      ; preds = %65
+  %69 = getelementptr inbounds nuw i8, ptr %.2, i64 6
+  store i8 2, ptr %61, align 1, !tbaa !36
+  %70 = lshr i64 %62, 8
+  %71 = trunc nuw nsw i64 %70 to i8
+  %72 = or disjoint i8 %71, -128
+  br label %.sink.split.sink.split.i58
 
-81:                                               ; preds = %73
-  %82 = trunc nuw nsw i64 %68 to i8
-  br label %der_encode_length.exit62
+.sink.split.sink.split.i58:                       ; preds = %67, %.thread.i63
+  %.3 = phi ptr [ %69, %.thread.i63 ], [ %61, %67 ]
+  %.sink.i59 = phi i8 [ %72, %.thread.i63 ], [ 1, %67 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.3, i64 1
+  store i8 %.sink.i59, ptr %.3, align 1, !tbaa !36
+  br label %der_encode_length.exit64
 
-83:                                               ; preds = %73
-  %84 = getelementptr inbounds nuw i8, ptr %.1, i64 6
-  store i8 1, ptr %67, align 1, !tbaa !36
-  %85 = trunc nuw i64 %68 to i8
-  %86 = or i8 %85, -128
-  br label %der_encode_length.exit62
-
-der_encode_length.exit62:                         ; preds = %.thread.i61, %81, %83
-  %.2 = phi ptr [ %79, %.thread.i61 ], [ %67, %81 ], [ %84, %83 ]
-  %.sink.i58 = phi i8 [ %80, %.thread.i61 ], [ %82, %81 ], [ %86, %83 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  store i8 %.sink.i58, ptr %.2, align 1, !tbaa !36
-  %88 = load ptr, ptr %0, align 8, !tbaa !37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr align 1 %88, i64 %68, i1 false)
-  %89 = load i64, ptr %4, align 8, !tbaa !31
-  %90 = getelementptr inbounds nuw i8, ptr %87, i64 %89
+der_encode_length.exit64:                         ; preds = %67, %.sink.split.sink.split.i58
+  %.4 = phi ptr [ %73, %.sink.split.sink.split.i58 ], [ %61, %67 ]
+  %74 = trunc i64 %62 to i8
+  %75 = getelementptr inbounds nuw i8, ptr %.4, i64 1
+  store i8 %74, ptr %.4, align 1, !tbaa !36
+  %76 = load ptr, ptr %0, align 8, !tbaa !37
+  %77 = load i64, ptr %4, align 8, !tbaa !31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 1 %76, i64 %77, i1 false)
+  %78 = load i64, ptr %4, align 8, !tbaa !31
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 %78
   %.not40 = icmp eq i64 %.038, 0
-  br i1 %.not40, label %135, label %91
+  br i1 %.not40, label %112, label %80
 
-91:                                               ; preds = %der_encode_length.exit62
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 1
-  store i8 -96, ptr %90, align 1, !tbaa !36
-  %93 = icmp samesign ugt i64 %.037, 255
-  br i1 %93, label %.thread.i67, label %94
+80:                                               ; preds = %der_encode_length.exit64
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 1
+  store i8 -96, ptr %79, align 1, !tbaa !36
+  %82 = icmp samesign ugt i64 %.037, 255
+  br i1 %82, label %.thread.i71, label %83
 
-94:                                               ; preds = %91
-  %95 = icmp samesign ult i64 %.037, 128
-  br i1 %95, label %102, label %104
+83:                                               ; preds = %80
+  %84 = icmp samesign ult i64 %.037, 128
+  br i1 %84, label %der_encode_length.exit72, label %.sink.split.sink.split.i66
 
-.thread.i67:                                      ; preds = %91
-  %96 = getelementptr inbounds nuw i8, ptr %90, i64 2
-  store i8 2, ptr %92, align 1, !tbaa !36
-  %97 = lshr i64 %.037, 8
-  %98 = trunc nuw nsw i64 %97 to i8
-  %99 = or disjoint i8 %98, -128
-  %100 = getelementptr inbounds nuw i8, ptr %90, i64 3
-  store i8 %99, ptr %96, align 1, !tbaa !36
-  %101 = trunc i64 %.037 to i8
-  br label %der_encode_length.exit68
+.thread.i71:                                      ; preds = %80
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 2
+  store i8 2, ptr %81, align 1, !tbaa !36
+  %86 = lshr i64 %.037, 8
+  %87 = trunc nuw nsw i64 %86 to i8
+  %88 = or disjoint i8 %87, -128
+  br label %.sink.split.sink.split.i66
 
-102:                                              ; preds = %94
-  %103 = trunc nuw nsw i64 %.037 to i8
-  br label %der_encode_length.exit68
+.sink.split.sink.split.i66:                       ; preds = %83, %.thread.i71
+  %.5 = phi ptr [ %85, %.thread.i71 ], [ %81, %83 ]
+  %.sink.i67 = phi i8 [ %88, %.thread.i71 ], [ 1, %83 ]
+  %89 = getelementptr inbounds nuw i8, ptr %.5, i64 1
+  store i8 %.sink.i67, ptr %.5, align 1, !tbaa !36
+  br label %der_encode_length.exit72
 
-104:                                              ; preds = %94
-  %105 = getelementptr inbounds nuw i8, ptr %90, i64 2
-  store i8 1, ptr %92, align 1, !tbaa !36
-  %106 = trunc nuw i64 %.037 to i8
-  %107 = or i8 %106, -128
-  br label %der_encode_length.exit68
+der_encode_length.exit72:                         ; preds = %83, %.sink.split.sink.split.i66
+  %.6 = phi ptr [ %89, %.sink.split.sink.split.i66 ], [ %81, %83 ]
+  %90 = trunc i64 %.037 to i8
+  %91 = getelementptr inbounds nuw i8, ptr %.6, i64 1
+  store i8 %90, ptr %.6, align 1, !tbaa !36
+  %92 = getelementptr inbounds nuw i8, ptr %.6, i64 2
+  store i8 2, ptr %91, align 1, !tbaa !36
+  %93 = load i64, ptr %13, align 8, !tbaa !33
+  %94 = icmp ult i64 %93, 32768
+  br i1 %94, label %96, label %95
 
-der_encode_length.exit68:                         ; preds = %.thread.i67, %102, %104
-  %.3 = phi ptr [ %100, %.thread.i67 ], [ %92, %102 ], [ %105, %104 ]
-  %.sink.i64 = phi i8 [ %101, %.thread.i67 ], [ %103, %102 ], [ %107, %104 ]
-  %108 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  store i8 %.sink.i64, ptr %.3, align 1, !tbaa !36
-  %109 = getelementptr inbounds nuw i8, ptr %.3, i64 2
-  store i8 2, ptr %108, align 1, !tbaa !36
-  %110 = load i64, ptr %13, align 8, !tbaa !33
-  %111 = icmp ult i64 %110, 32768
-  br i1 %111, label %113, label %112
-
-112:                                              ; preds = %der_encode_length.exit68
+95:                                               ; preds = %der_encode_length.exit72
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.8, i32 noundef 570) #8
   unreachable
 
-113:                                              ; preds = %der_encode_length.exit68
-  %114 = icmp samesign ugt i64 %110, 255
-  br i1 %114, label %.thread.i73, label %115
+96:                                               ; preds = %der_encode_length.exit72
+  %97 = icmp samesign ugt i64 %93, 255
+  br i1 %97, label %.thread.i79, label %98
 
-115:                                              ; preds = %113
-  %116 = icmp samesign ult i64 %110, 128
-  br i1 %116, label %123, label %125
+98:                                               ; preds = %96
+  %99 = icmp samesign ult i64 %93, 128
+  br i1 %99, label %der_encode_length.exit80, label %.sink.split.sink.split.i74
 
-.thread.i73:                                      ; preds = %113
-  %117 = getelementptr inbounds nuw i8, ptr %.3, i64 3
-  store i8 2, ptr %109, align 1, !tbaa !36
-  %118 = lshr i64 %110, 8
-  %119 = trunc nuw nsw i64 %118 to i8
-  %120 = or disjoint i8 %119, -128
-  %121 = getelementptr inbounds nuw i8, ptr %.3, i64 4
-  store i8 %120, ptr %117, align 1, !tbaa !36
-  %122 = trunc i64 %110 to i8
-  br label %der_encode_length.exit74
+.thread.i79:                                      ; preds = %96
+  %100 = getelementptr inbounds nuw i8, ptr %.6, i64 3
+  store i8 2, ptr %92, align 1, !tbaa !36
+  %101 = lshr i64 %93, 8
+  %102 = trunc nuw nsw i64 %101 to i8
+  %103 = or disjoint i8 %102, -128
+  br label %.sink.split.sink.split.i74
 
-123:                                              ; preds = %115
-  %124 = trunc nuw nsw i64 %110 to i8
-  br label %der_encode_length.exit74
+.sink.split.sink.split.i74:                       ; preds = %98, %.thread.i79
+  %.7 = phi ptr [ %100, %.thread.i79 ], [ %92, %98 ]
+  %.sink.i75 = phi i8 [ %103, %.thread.i79 ], [ 1, %98 ]
+  %104 = getelementptr inbounds nuw i8, ptr %.7, i64 1
+  store i8 %.sink.i75, ptr %.7, align 1, !tbaa !36
+  br label %der_encode_length.exit80
 
-125:                                              ; preds = %115
-  %126 = getelementptr inbounds nuw i8, ptr %.3, i64 3
-  store i8 1, ptr %109, align 1, !tbaa !36
-  %127 = trunc nuw i64 %110 to i8
-  %128 = or i8 %127, -128
-  br label %der_encode_length.exit74
+der_encode_length.exit80:                         ; preds = %98, %.sink.split.sink.split.i74
+  %.8 = phi ptr [ %104, %.sink.split.sink.split.i74 ], [ %92, %98 ]
+  %105 = trunc i64 %93 to i8
+  %106 = getelementptr inbounds nuw i8, ptr %.8, i64 1
+  store i8 %105, ptr %.8, align 1, !tbaa !36
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %108 = load ptr, ptr %107, align 8, !tbaa !34
+  %109 = load i64, ptr %13, align 8, !tbaa !33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %106, ptr align 1 %108, i64 %109, i1 false)
+  %110 = load i64, ptr %13, align 8, !tbaa !33
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 %110
+  br label %112
 
-der_encode_length.exit74:                         ; preds = %.thread.i73, %123, %125
-  %.4 = phi ptr [ %121, %.thread.i73 ], [ %109, %123 ], [ %126, %125 ]
-  %.sink.i70 = phi i8 [ %122, %.thread.i73 ], [ %124, %123 ], [ %128, %125 ]
-  %129 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  store i8 %.sink.i70, ptr %.4, align 1, !tbaa !36
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %131 = load ptr, ptr %130, align 8, !tbaa !34
-  %132 = load i64, ptr %13, align 8, !tbaa !33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr align 1 %131, i64 %132, i1 false)
-  %133 = load i64, ptr %13, align 8, !tbaa !33
-  %134 = getelementptr inbounds nuw i8, ptr %129, i64 %133
-  br label %135
+112:                                              ; preds = %der_encode_length.exit80, %der_encode_length.exit64
+  %.0101 = phi ptr [ %79, %der_encode_length.exit64 ], [ %111, %der_encode_length.exit80 ]
+  %113 = load ptr, ptr %1, align 8, !tbaa !15
+  %114 = ptrtoint ptr %.0101 to i64
+  %115 = ptrtoint ptr %113 to i64
+  %116 = sub i64 %114, %115
+  %117 = icmp eq i64 %47, %116
+  br i1 %117, label %119, label %118
 
-135:                                              ; preds = %der_encode_length.exit74, %der_encode_length.exit62
-  %.099 = phi ptr [ %90, %der_encode_length.exit62 ], [ %134, %der_encode_length.exit74 ]
-  %136 = load ptr, ptr %1, align 8, !tbaa !15
-  %137 = ptrtoint ptr %.099 to i64
-  %138 = ptrtoint ptr %136 to i64
-  %139 = sub i64 %137, %138
-  %140 = icmp eq i64 %47, %139
-  br i1 %140, label %142, label %141
-
-141:                                              ; preds = %135
+118:                                              ; preds = %112
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.8, i32 noundef 663) #8
   unreachable
 
-142:                                              ; preds = %135, %der_encode_length.exit52
-  %.036 = phi i64 [ 0, %der_encode_length.exit52 ], [ %47, %135 ]
+119:                                              ; preds = %112, %der_encode_length.exit52
+  %.036 = phi i64 [ 0, %der_encode_length.exit52 ], [ %47, %112 ]
   ret i64 %.036
 }
 
