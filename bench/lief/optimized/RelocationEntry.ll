@@ -620,21 +620,21 @@ define noundef range(i32 -1, 16393) i32 @_ZN4LIEF2PE15RelocationEntry14type_from
     i32 361, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
   ]
 
-_ZN4LIEF2PE6Header7is_mipsENS1_13MACHINE_TYPESE.exit: ; preds = %5
+6:                                                ; preds = %5
   %6 = add i32 %0, -453
   %7 = icmp ult i32 %6, -5
   %switch.idx.cast.i = trunc i32 %0 to i1
   %or.cond.not = or i1 %7, %switch.idx.cast.i
   br i1 %or.cond.not, label %_ZN4LIEF2PE6Header6is_armENS1_13MACHINE_TYPESE.exit.thread, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
 
-_ZN4LIEF2PE6Header6is_armENS1_13MACHINE_TYPESE.exit.thread: ; preds = %_ZN4LIEF2PE6Header7is_mipsENS1_13MACHINE_TYPESE.exit
+7:                                                ; preds = %6
   switch i32 %0, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit [
     i32 20530, label %8
     i32 20580, label %8
     i32 20776, label %8
   ]
 
-8:                                                ; preds = %_ZN4LIEF2PE6Header6is_armENS1_13MACHINE_TYPESE.exit.thread, %_ZN4LIEF2PE6Header6is_armENS1_13MACHINE_TYPESE.exit.thread, %_ZN4LIEF2PE6Header6is_armENS1_13MACHINE_TYPESE.exit.thread
+8:                                                ; preds = %7, %7, %7
   br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
 
 9:                                                ; preds = %2
@@ -648,7 +648,7 @@ _ZN4LIEF2PE6Header6is_armENS1_13MACHINE_TYPESE.exit.thread: ; preds = %_ZN4LIEF2
 10:                                               ; preds = %9, %9, %9
   br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
 
-11:                                               ; preds = %2
+_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split: ; preds = %2
   switch i32 %0, label %12 [
     i32 20530, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
     i32 20580, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
@@ -657,16 +657,16 @@ _ZN4LIEF2PE6Header6is_armENS1_13MACHINE_TYPESE.exit.thread: ; preds = %_ZN4LIEF2
     i32 25138, label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split26
   ]
 
-12:                                               ; preds = %11, %2
+12:; preds = %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split27, %2
   br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
 
-_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split: ; preds = %9
+_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split27: ; preds = %9
   br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
 
-_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split26: ; preds = %11, %11
+_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split28: ; preds = %11, %11
   br label %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit
 
-_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit: ; preds = %11, %11, %11, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split26, %9, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split, %_ZN4LIEF2PE6Header7is_mipsENS1_13MACHINE_TYPESE.exit, %5, %5, %5, %5, %5, %10, %8, %_ZN4LIEF2PE6Header6is_armENS1_13MACHINE_TYPESE.exit.thread, %12
+_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit: ; preds = %11, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split27, %11, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split26, %9, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split27, %6, %5, %5, %5, %5, %5, %10, %8, %7, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split26
   %.0 = phi i32 [ %4, %12 ], [ 2055, %9 ], [ 1029, %8 ], [ -1, %_ZN4LIEF2PE6Header6is_armENS1_13MACHINE_TYPESE.exit.thread ], [ 4103, %10 ], [ 261, %5 ], [ 261, %5 ], [ 261, %5 ], [ 261, %5 ], [ 261, %5 ], [ 8200, %11 ], [ 8200, %11 ], [ 8200, %11 ], [ 517, %_ZN4LIEF2PE6Header7is_mipsENS1_13MACHINE_TYPESE.exit ], [ -1, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split ], [ 16392, %_ZN4LIEF2PE6Header8is_riscvENS1_13MACHINE_TYPESE.exit.fold.split26 ]
   ret i32 %.0
 }

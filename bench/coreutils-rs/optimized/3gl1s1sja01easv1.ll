@@ -20,7 +20,7 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17hab4d42abe9e9c5b4E(p
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.backedge
-  %11 = phi i64 [ %8, %.lr.ph ], [ %38, %.backedge ]
+  %11 = phi i64 [ %8, %.lr.ph ], [ %37, %.backedge ]
   %12 = call noundef ptr @"_ZN55_$LT$std..io..stdio..Stdin$u20$as$u20$std..io..Read$GT$8read_buf17h322fc35d3bfb37c5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %17
@@ -48,8 +48,8 @@ default.unreachable:                              ; preds = %17
   unreachable
 
 20:                                               ; preds = %17
-  %.mask20.i = and i64 %18, -4294967296
-  %21 = icmp eq i64 %.mask20.i, 17179869184
+  %.mask.i = and i64 %18, -4294967296
+  %21 = icmp eq i64 %.mask.i, 17179869184
   br i1 %21, label %.noexc, label %.loopexit
 
 22:                                               ; preds = %17
@@ -59,13 +59,13 @@ default.unreachable:                              ; preds = %17
   %24 = icmp eq i64 %.mask.i, 150323855360
   br i1 %24, label %.noexc, label %.loopexit
 
-25:                                               ; preds = %17
+25:; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %27 = load i8, ptr %26, align 8, !range !5, !noundef !4
   %28 = icmp eq i8 %27, 35
   br i1 %28, label %.noexc, label %.loopexit
 
-29:                                               ; preds = %14
+29:; preds = %14
   %30 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17hc719a60e4a2808feE(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.a0c2f4b98143708dad23ee16b4276516.0, i64 noundef 21)
   br label %.loopexit
 
@@ -78,23 +78,23 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %17
 .noexc:                                           ; preds = %25, %22, %20, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !6
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17he88809eb4fb9dc87E.llvm.8096336929218550691(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %12)
-  %34 = load i8, ptr %4, align 8, !range !13, !alias.scope !14, !noalias !6, !noundef !4
-  %35 = icmp eq i8 %34, 3
-  br i1 %35, label %36, label %37
+  %33 = load i8, ptr %4, align 8, !range !13, !alias.scope !14, !noalias !6, !noundef !4
+  %34 = icmp eq i8 %33, 3
+  br i1 %34, label %35, label %36
 
-36:                                               ; preds = %.noexc
+35:                                               ; preds = %.noexc
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h90163ffc472f28c7E.llvm.8096336929218550691"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
-  br label %37
+  br label %36
 
-37:                                               ; preds = %36, %.noexc
+36:                                               ; preds = %35, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6
   %.pre = load i64, ptr %6, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %37, %14
-  %38 = phi i64 [ %.pre, %37 ], [ %15, %14 ]
-  %39 = load i64, ptr %5, align 8, !noundef !4
-  %.not = icmp eq i64 %39, %38
+.backedge:                                        ; preds = %36, %14
+  %37 = phi i64 [ %.pre, %37 ], [ %15, %14 ]
+  %38 = load i64, ptr %5, align 8, !noundef !4
+  %.not = icmp eq i64 %38, %37
   br i1 %.not, label %.loopexit, label %10
 }
 
@@ -114,13 +114,13 @@ declare void @llvm.assume(i1 noundef) #1
 declare hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h90163ffc472f28c7E.llvm.8096336929218550691"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_ZN3std2io5error14repr_bitpacked11decode_repr17he88809eb4fb9dc87E.llvm.8096336929218550691(ptr noalias noundef sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16), ptr noundef nonnull) unnamed_addr #2
+declare hidden void @_ZN3std2io5error14repr_bitpacked11decode_repr17he88809eb4fb9dc87E.llvm.8096336929218550691(ptr noalias noundef sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16), ptr noundef nonnull) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

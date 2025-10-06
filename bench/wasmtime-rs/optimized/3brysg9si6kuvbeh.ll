@@ -13968,7 +13968,7 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10HelperType9push_flat17h
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ba49c5559cd89f5E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ba49c5559cd89f5E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ba49c5559cd89f5E.exit.lr.ph", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h093199a9242336d6E.exit6"
-  %42 = phi i64 [ %.pre, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ba49c5559cd89f5E.exit.lr.ph" ], [ %52, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h093199a9242336d6E.exit6" ]
+  %.sroa.0.013 = phi i64 [ %.pre, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ba49c5559cd89f5E.exit.lr.ph" ], [ %52, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h093199a9242336d6E.exit6" ]
   %.sroa.0.013 = phi ptr [ %spec.select.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ba49c5559cd89f5E.exit.lr.ph" ], [ %43, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h093199a9242336d6E.exit6" ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 1
   %44 = load i8, ptr %.sroa.0.013, align 1, !range !1290, !noundef !4

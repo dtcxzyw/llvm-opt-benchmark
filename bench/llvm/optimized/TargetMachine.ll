@@ -1314,8 +1314,8 @@ define dso_local noundef range(i32 0, 7) i32 @_ZNK4llvm13TargetMachine11getTLSMo
   %4 = load ptr, ptr %3, align 8, !tbaa !198
   %5 = tail call noundef i32 @_ZNK4llvm6Module11getPIELevelEv(ptr noundef nonnull align 8 dereferenceable(841) %4) #21
   %.not = icmp eq i32 %5, 0
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %7 = load i32, ptr %6, align 8, !tbaa !66
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %6 = load i32, ptr %5, align 8, !tbaa !66
   %8 = icmp eq i32 %7, 1
   %9 = and i1 %.not, %8
   %10 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine20shouldAssumeDSOLocalEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(1264) %0, ptr noundef nonnull %1)

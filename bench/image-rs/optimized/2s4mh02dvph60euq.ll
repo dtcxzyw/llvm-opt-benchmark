@@ -15252,7 +15252,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN95_$LT$image..codecs..bmp..decoder.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h58342e812c7584e7E"(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(120) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %6 = alloca { ptr, [5 x i64] }, align 8
+  %4 = alloca { ptr, [5 x i64] }, align 8
   %7 = alloca { i64, i64 }, align 8
   %8 = alloca { i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -15260,8 +15260,8 @@ define hidden void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$
   store i64 %3, ptr %9, align 8
   store i64 0, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %11 = load i32, ptr %10, align 4, !alias.scope !2369, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %11 = load i32, ptr %8, align 4, !alias.scope !2369, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %13 = load i32, ptr %12, align 8, !alias.scope !2369, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 106
@@ -15283,37 +15283,37 @@ define hidden void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$
   store i64 %spec.select.i, ptr %26, align 8
   store i64 0, ptr %7, align 8
   %27 = icmp eq i64 %3, %spec.select.i
-  br i1 %27, label %31, label %30
+  br i1 %27, label %31, label %29
 
-28:                                               ; preds = %31, %30
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %30, %29
+  %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr115drop_in_place$LT$image..codecs..bmp..decoder..BmpDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h8d9b67d1d90a6235E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %1) #34
-          to label %46 unwind label %44
+          to label %46 unwind label %43
 
-30:                                               ; preds = %4
+29:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   invoke void @_ZN4core9panicking13assert_failed17h9d2a0312341363abE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.233.llvm.3890463254259644073) #33
-          to label %32 unwind label %28
+          to label %32 unwind label %27
 
-31:                                               ; preds = %4
+30:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   invoke void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$15read_image_data17ha674d14299d358ebE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(120) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
-          to label %33 unwind label %28
+          to label %33 unwind label %27
 
-32:                                               ; preds = %30
+31:                                               ; preds = %29
   unreachable
 
-33:                                               ; preds = %31
+32:                                               ; preds = %30
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2377)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2380)
-  %34 = load i64, ptr %1, align 8, !range !273, !alias.scope !2383, !noundef !4
-  %35 = icmp eq i64 %34, -9223372036854775808
-  br i1 %35, label %"_ZN4core3ptr115drop_in_place$LT$image..codecs..bmp..decoder..BmpDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h8d9b67d1d90a6235E.exit", label %36
+  %33 = load i64, ptr %1, align 8, !range !273, !alias.scope !2383, !noundef !4
+  %34 = icmp eq i64 %33, -9223372036854775808
+  br i1 %34, label %"_ZN4core3ptr115drop_in_place$LT$image..codecs..bmp..decoder..BmpDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h8d9b67d1d90a6235E.exit", label %36
 
-36:                                               ; preds = %33
+38:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2384
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h71769612cc4a2f55E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -15333,17 +15333,17 @@ define hidden void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2384
   br label %"_ZN4core3ptr115drop_in_place$LT$image..codecs..bmp..decoder..BmpDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h8d9b67d1d90a6235E.exit"
 
-"_ZN4core3ptr115drop_in_place$LT$image..codecs..bmp..decoder..BmpDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h8d9b67d1d90a6235E.exit": ; preds = %33, %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$$u5b$u8$u3b$$u20$3$u5d$$GT$$GT$17h51bacab69aafe379E.exit.i.i"
+"_ZN4core3ptr115drop_in_place$LT$image..codecs..bmp..decoder..BmpDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h8d9b67d1d90a6235E.exit": ; preds = %32, %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$$u5b$u8$u3b$$u20$3$u5d$$GT$$GT$17h51bacab69aafe379E.exit.i.i"
   ret void
 
-44:                                               ; preds = %28
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %27
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #35
   unreachable
 
-46:                                               ; preds = %28
-  resume { ptr, i32 } %29
+45:                                               ; preds = %27
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -15356,8 +15356,8 @@ define hidden void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$
   store i64 %3, ptr %8, align 8
   store i64 0, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %10 = load i32, ptr %9, align 4, !alias.scope !2391, !noundef !4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %8 = load i32, ptr %7, align 4, !alias.scope !2391, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %12 = load i32, ptr %11, align 8, !alias.scope !2391, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 130
@@ -15381,39 +15381,39 @@ define hidden void @"_ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$
   %26 = icmp eq i64 %3, %spec.select.i
   br i1 %26, label %30, label %29
 
-27:                                               ; preds = %30, %29
-  %28 = landingpad { ptr, i32 }
+26:                                               ; preds = %29, %28
+  %27 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr128drop_in_place$LT$image..codecs..bmp..decoder..BmpDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8a8a289e2b235770E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %1) #34
-          to label %35 unwind label %33
+          to label %34 unwind label %32
 
-29:                                               ; preds = %4
+28:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   invoke void @_ZN4core9panicking13assert_failed17h9d2a0312341363abE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.df12dd7d62f56185f0383eceae1d36f2.233.llvm.3890463254259644073) #33
-          to label %31 unwind label %27
+          to label %31 unwind label %26
 
-30:                                               ; preds = %4
+29:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$15read_image_data17hc060812c76930931E"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
-          to label %32 unwind label %27
+          to label %32 unwind label %26
 
-31:                                               ; preds = %29
+30:                                               ; preds = %28
   unreachable
 
-32:                                               ; preds = %30
+31:                                               ; preds = %29
   tail call void @"_ZN4core3ptr128drop_in_place$LT$image..codecs..bmp..decoder..BmpDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8a8a289e2b235770E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %1)
   ret void
 
-33:                                               ; preds = %27
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %26
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #35
   unreachable
 
-35:                                               ; preds = %27
-  resume { ptr, i32 } %28
+34:                                               ; preds = %26
+  resume { ptr, i32 } %27
 }
 
 ; Function Attrs: nonlazybind uwtable

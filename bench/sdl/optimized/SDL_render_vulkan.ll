@@ -621,24 +621,24 @@ define internal void @VULKAN_WindowEvent(ptr noundef readonly captures(none) %0,
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @VULKAN_SupportsBlendMode(ptr readnone captures(none) %0, i32 noundef %1) #0 {
   %3 = tail call i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %1) #7
-  %4 = tail call i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %1) #7
-  %5 = tail call i32 @SDL_GetBlendModeColorOperation(i32 noundef %1) #7
-  %6 = tail call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %1) #7
-  %7 = tail call i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %1) #7
-  %8 = tail call i32 @SDL_GetBlendModeAlphaOperation(i32 noundef %1) #7
+  %2 = tail call i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %1) #7
+  %3 = tail call i32 @SDL_GetBlendModeColorOperation(i32 noundef %1) #7
+  %4 = tail call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %1) #7
+  %5 = tail call i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %1) #7
+  %6 = tail call i32 @SDL_GetBlendModeAlphaOperation(i32 noundef %1) #7
   %.off = add i32 %3, -1
   %switch = icmp ult i32 %.off, 10
-  %.off24 = add i32 %4, -1
-  %switch25 = icmp ult i32 %.off24, 10
-  %or.cond = select i1 %switch, i1 %switch25, i1 false
+  %.off27 = add i32 %4, -1
+  %switch28 = icmp ult i32 %.off27, 10
+  %or.cond = select i1 %switch, i1 %switch28, i1 false
   br i1 %or.cond, label %9, label %GetBlendFactor.exit
 
-9:                                                ; preds = %2
-  %switch.tableidx.i = add i32 %5, -1
-  %10 = icmp ult i32 %switch.tableidx.i, 5
+9:; preds = %2
+  %.off32 = add i32 %5, -1
+  %switch33 = icmp ult i32 %.off32, 5
   %.off26 = add i32 %6, -1
   %switch27 = icmp ult i32 %.off26, 10
-  %or.cond28 = select i1 %10, i1 %switch27, i1 false
+  %or.cond28 = select i1 %switch33, i1 %switch27, i1 false
   %.off29 = add i32 %7, -1
   %switch30 = icmp ult i32 %.off29, 10
   %or.cond31 = select i1 %or.cond28, i1 %switch30, i1 false
@@ -8180,47 +8180,47 @@ GetBlendFactor.exit60.i:                          ; preds = %GetBlendFactor.exit
   %179 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i32 %.0.i59.i, ptr %179, align 4
   %180 = call i32 @SDL_GetBlendModeColorOperation(i32 noundef %40) #7
-  %switch.tableidx.i.i = add i32 %180, -1
-  %181 = icmp ult i32 %switch.tableidx.i.i, 5
-  %switch.tableidx..i.i = select i1 %181, i32 %switch.tableidx.i.i, i32 2147483647
+  %switch.tableidx6 = add i32 %180, -1
+  %181 = icmp ult i32 %switch.tableidx6, 5
+  %switch.tableidx6. = select i1 %181, i32 %switch.tableidx6, i32 2147483647
   %182 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  store i32 %switch.tableidx..i.i, ptr %182, align 4
+  store i32 %switch.tableidx6., ptr %182, align 4
   %183 = call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %40) #7
-  %switch.tableidx6 = add i32 %183, -1
-  %184 = icmp ult i32 %switch.tableidx6, 10
-  br i1 %184, label %switch.lookup7, label %GetBlendFactor.exit62.i
+  %switch.tableidx16 = add i32 %183, -1
+  %184 = icmp ult i32 %switch.tableidx16, 10
+  br i1 %184, label %switch.lookup17, label %GetBlendFactor.exit63.i
 
-switch.lookup7:                                   ; preds = %GetBlendFactor.exit60.i
-  %185 = zext nneg i32 %switch.tableidx6 to i64
-  %switch.gep8 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_SetDrawState.18, i64 %185
-  %switch.load9 = load i32, ptr %switch.gep8, align 4
-  br label %GetBlendFactor.exit62.i
+switch.lookup17:                                  ; preds = %GetBlendFactor.exit60.i
+  %185 = zext nneg i32 %switch.tableidx16 to i64
+  %switch.gep18 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_SetDrawState.18, i64 %185
+  %switch.load19 = load i32, ptr %switch.gep18, align 4
+  br label %GetBlendFactor.exit63.i
 
-GetBlendFactor.exit62.i:                          ; preds = %GetBlendFactor.exit60.i, %switch.lookup7
-  %.0.i61.i = phi i32 [ %switch.load9, %switch.lookup7 ], [ 2147483647, %GetBlendFactor.exit60.i ]
+GetBlendFactor.exit63.i:                          ; preds = %GetBlendFactor.exit60.i, %switch.lookup17
+  %.0.i62.i = phi i32 [ %switch.load19, %switch.lookup7 ], [ 2147483647, %GetBlendFactor.exit60.i ]
   %186 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i32 %.0.i61.i, ptr %186, align 4
+  store i32 %.0.i62.i, ptr %186, align 4
   %187 = call i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %40) #7
-  %switch.tableidx10 = add i32 %187, -1
-  %188 = icmp ult i32 %switch.tableidx10, 10
-  br i1 %188, label %switch.lookup11, label %GetBlendFactor.exit64.i
+  %switch.tableidx8 = add i32 %187, -1
+  %188 = icmp ult i32 %switch.tableidx8, 10
+  br i1 %188, label %switch.lookup9, label %GetBlendFactor.exit65.i
 
-switch.lookup11:                                  ; preds = %GetBlendFactor.exit62.i
-  %189 = zext nneg i32 %switch.tableidx10 to i64
-  %switch.gep12 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_SetDrawState.18, i64 %189
-  %switch.load13 = load i32, ptr %switch.gep12, align 4
-  br label %GetBlendFactor.exit64.i
+switch.lookup9:                                   ; preds = %GetBlendFactor.exit63.i
+  %189 = zext nneg i32 %switch.tableidx8 to i64
+  %switch.gep10 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_SetDrawState.18, i64 %189
+  %switch.load11 = load i32, ptr %switch.gep10, align 4
+  br label %GetBlendFactor.exit65.i
 
-GetBlendFactor.exit64.i:                          ; preds = %GetBlendFactor.exit62.i, %switch.lookup11
-  %.0.i63.i = phi i32 [ %switch.load13, %switch.lookup11 ], [ 2147483647, %GetBlendFactor.exit62.i ]
+GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit63.i, %switch.lookup9
+  %.0.i64.i = phi i32 [ %switch.load11, %switch.lookup11 ], [ 2147483647, %GetBlendFactor.exit62.i ]
   %190 = getelementptr inbounds nuw i8, ptr %31, i64 20
-  store i32 %.0.i63.i, ptr %190, align 4
+  store i32 %.0.i64.i, ptr %190, align 4
   %191 = call i32 @SDL_GetBlendModeAlphaOperation(i32 noundef %40) #7
-  %switch.tableidx.i65.i = add i32 %191, -1
-  %192 = icmp ult i32 %switch.tableidx.i65.i, 5
-  %switch.tableidx..i66.i = select i1 %192, i32 %switch.tableidx.i65.i, i32 2147483647
+  %switch.tableidx12 = add i32 %191, -1
+  %192 = icmp ult i32 %switch.tableidx12, 5
+  %switch.tableidx12. = select i1 %192, i32 %switch.tableidx12, i32 2147483647
   %193 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i32 %switch.tableidx..i66.i, ptr %193, align 4
+  store i32 %switch.tableidx12., ptr %193, align 4
   %194 = getelementptr inbounds nuw i8, ptr %31, i64 28
   store i32 15, ptr %194, align 4
   %195 = getelementptr inbounds nuw i8, ptr %.val163, i64 1808
@@ -8255,7 +8255,7 @@ GetBlendFactor.exit64.i:                          ; preds = %GetBlendFactor.exit
   store ptr @.str.34, ptr %210, align 16
   br i1 %205, label %204, label %140, !llvm.loop !42
 
-211:                                              ; preds = %GetBlendFactor.exit64.i
+211:                                              ; preds = %GetBlendFactor.exit65.i
   %212 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
   br i1 %212, label %213, label %215
 
@@ -8270,7 +8270,7 @@ GetBlendFactor.exit64.i:                          ; preds = %GetBlendFactor.exit
   %217 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.35, ptr noundef %216) #7
   br label %.thread9
 
-218:                                              ; preds = %GetBlendFactor.exit64.i
+218:                                              ; preds = %GetBlendFactor.exit65.i
   %219 = getelementptr inbounds nuw i8, ptr %.val163, i64 10336
   %220 = load ptr, ptr %219, align 8
   %221 = getelementptr inbounds nuw i8, ptr %.val163, i64 10328

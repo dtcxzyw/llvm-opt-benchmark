@@ -1072,7 +1072,7 @@ define void @"_ZN99_$LT$uv_distribution_filename..source_dist..SourceDistFilenam
   %12 = load i32, ptr %11, align 4
   tail call void @"_ZN69_$LT$uv_pep440..version..Version$u20$as$u20$rkyv..traits..Archive$GT$7resolve17h3fa1168dfe755ec1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, i32 noundef %10, i32 %12, ptr noundef nonnull %7, i64 noundef %8)
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %15 = load i8, ptr %14, align 4, !range !145, !noundef !3
   store i8 %15, ptr %13, align 1
   ret void

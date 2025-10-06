@@ -54046,7 +54046,7 @@ _ZN12_GLOBAL__N_117MapRegionCounters21updateCounterMappingsEPN5clang4StmtE.exit:
     i16 130, label %46
     i16 131, label %47
     i16 120, label %48
-    i16 242, label %_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit.thread.fold.split
+    i16 242, label %_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit.thread.fold.split13
     i16 240, label %54
     i16 254, label %55
     i16 248, label %56
@@ -54103,7 +54103,7 @@ _ZN12_GLOBAL__N_117MapRegionCounters21updateCounterMappingsEPN5clang4StmtE.exit:
     i32 20, label %.thread.fold.split.i
   ]
 
-52:                                               ; preds = %48
+52:; preds = %48
   %switch.tableidx.i = add nsw i32 %51, -10
   %53 = icmp ult i32 %switch.tableidx.i, 6
   br i1 %53, label %switch.lookup.i, label %_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit.thread10
@@ -54123,7 +54123,7 @@ _ZN12_GLOBAL__N_117MapRegionCounters21updateCounterMappingsEPN5clang4StmtE.exit:
 58:                                               ; preds = %32
   br label %_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit.thread
 
-59:                                               ; preds = %32
+59:; preds = %32
   %60 = load i32, ptr %1, align 8
   %61 = and i32 %60, 16252928
   %62 = icmp eq i32 %61, 4718592
@@ -54141,10 +54141,10 @@ _ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4Stmt
   %.not4 = icmp eq i8 %.1.i5.i, 0
   br i1 %.not4, label %_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit.thread10, label %_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit.thread
 
-_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit.thread.fold.split: ; preds = %32
+_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit.thread.fold.split13: ; preds = %32
   br label %_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit.thread
 
-_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit.thread: ; preds = %32, %_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit.thread.fold.split, %switch.lookup.i, %.thread.fold.split.i, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %59, %58, %57, %56, %55, %54, %_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit
+_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit.thread: ; preds = %32, %_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit.thread.fold.split13, %switch.lookup.i, %.thread.fold.split.i, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %59, %58, %57, %56, %55, %54, %_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit
   %.09 = phi i8 [ %.1.i5.i, %_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit ], [ %switch.offset.i, %switch.lookup.i ], [ 15, %.thread.fold.split.i ], [ 14, %48 ], [ 1, %32 ], [ 16, %47 ], [ 13, %46 ], [ 12, %45 ], [ 11, %44 ], [ 10, %43 ], [ 9, %42 ], [ 8, %41 ], [ 7, %40 ], [ 6, %39 ], [ 5, %38 ], [ 4, %37 ], [ 3, %36 ], [ 2, %35 ], [ 26, %59 ], [ 25, %58 ], [ 24, %57 ], [ 23, %56 ], [ 22, %55 ], [ 21, %54 ], [ 20, %_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit.thread.fold.split ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load i32, ptr %63, align 8, !tbaa !807

@@ -5040,78 +5040,78 @@ define internal noundef i32 @parse_CPropertyRestriction(ptr noundef %0, ptr noun
   %15 = and i32 %14, 3840
   %16 = and i32 %14, 15
   %17 = icmp samesign ult i32 %16, 9
-  br i1 %17, label %switch.lookup.i, label %18
+  br i1 %17, label %19, label %18
 
 18:                                               ; preds = %7
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1156, ptr noundef nonnull @.str.1157, i32 noundef 3443, ptr noundef nonnull @.str.1291) #12
   unreachable
 
-switch.lookup.i:                                  ; preds = %7
+19:                                               ; preds = %7
   store i32 %16, ptr %5, align 4
-  %19 = call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @PR_VALS, ptr noundef nonnull @.str.1292)
+  %20 = call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @PR_VALS, ptr noundef nonnull @.str.1292)
   switch i32 %15, label %20 [
     i32 0, label %parse_relop.exit
-    i32 256, label %21
-    i32 512, label %21
+    i32 256, label %22
+    i32 512, label %22
   ]
 
-20:                                               ; preds = %switch.lookup.i
+21:                                               ; preds = %19
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1156, ptr noundef nonnull @.str.1157, i32 noundef 3488, ptr noundef nonnull @.str.1264) #12
   unreachable
 
-21:                                               ; preds = %switch.lookup.i, %switch.lookup.i
-  %22 = load i32, ptr %5, align 4
-  %23 = or i32 %22, %15
-  store i32 %23, ptr %5, align 4
-  %24 = call ptr @try_val_to_str(i32 noundef %15, ptr noundef nonnull @PR_VALS)
-  %.not39.i = icmp eq ptr %24, null
-  br i1 %.not39.i, label %parse_relop.exit, label %25
+22:                                               ; preds = %19, %19
+  %23 = load i32, ptr %5, align 4
+  %24 = or i32 %23, %15
+  store i32 %24, ptr %5, align 4
+  %25 = call ptr @try_val_to_str(i32 noundef %15, ptr noundef nonnull @PR_VALS)
+  %.not39.i = icmp eq ptr %25, null
+  br i1 %.not39.i, label %parse_relop.exit, label %26
 
-25:                                               ; preds = %21
-  %26 = call ptr @wmem_packet_scope()
-  %27 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %26, ptr noundef nonnull @.str.1293, ptr noundef nonnull %24)
-  %28 = call ptr @wmem_packet_scope()
-  %29 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %28, ptr noundef nonnull @.str.1294, ptr noundef %27, ptr noundef %19)
+26:                                               ; preds = %22
+  %27 = call ptr @wmem_packet_scope()
+  %28 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %27, ptr noundef nonnull @.str.1293, ptr noundef nonnull %25)
+  %29 = call ptr @wmem_packet_scope()
+  %30 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %29, ptr noundef nonnull @.str.1294, ptr noundef %28, ptr noundef %20)
   br label %parse_relop.exit
 
-parse_relop.exit:                                 ; preds = %switch.lookup.i, %21, %25
-  %.0.i = phi ptr [ %29, %25 ], [ %19, %21 ], [ %19, %switch.lookup.i ]
-  %30 = load i32, ptr @hf_mswsp_cproprestrict_relop, align 4
-  %31 = load i8, ptr %.0.i, align 1
-  %32 = icmp eq i8 %31, 0
-  %33 = select i1 %32, ptr @.str.1169, ptr %.0.i
-  %34 = load i32, ptr %5, align 4
-  %35 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %13, i32 noundef %30, ptr noundef %0, i32 noundef %2, i32 noundef 4, ptr noundef %.0.i, ptr noundef nonnull @.str.1295, ptr noundef %33, i32 noundef %34)
-  %36 = add i32 %2, 4
-  %37 = load ptr, ptr %8, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.1287, ptr noundef %.0.i)
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %39 = call i32 (ptr, i32, ptr, ptr, ptr, ptr, ...) @parse_CFullPropSpec(ptr noundef %0, i32 noundef %36, ptr noundef %13, ptr noundef %4, ptr noundef nonnull %38, ptr noundef nonnull @.str.1288)
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %41 = call fastcc i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %39, ptr noundef %13, ptr noundef nonnull %40, ptr noundef nonnull @.str.1289)
-  %42 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef %41, i32 noundef 4, ptr noundef %4, ptr noundef nonnull @.str.1290)
-  %43 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %42)
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store i32 %43, ptr %44, align 8
-  %45 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %42)
-  %46 = load i32, ptr @hf_mswsp_lcid, align 4
-  %47 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %13, i32 noundef %46, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef %45, ptr noundef nonnull @.str.1317, ptr noundef nonnull @.str.83, i32 noundef %45)
-  %48 = load i32, ptr @ett_LCID, align 4
-  %49 = call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48)
-  %50 = load i32, ptr @hf_mswsp_lcid_langid, align 4
-  %51 = add i32 %42, 2
-  %52 = call ptr @proto_tree_add_uint(ptr noundef %49, i32 noundef %50, ptr noundef %0, i32 noundef %51, i32 noundef 2, i32 noundef %45)
-  %53 = load i32, ptr @hf_mswsp_lcid_sortid, align 4
-  %54 = add i32 %42, 1
-  %55 = lshr i32 %45, 16
-  %56 = and i32 %55, 15
-  %57 = call ptr @proto_tree_add_uint(ptr noundef %49, i32 noundef %53, ptr noundef %0, i32 noundef %54, i32 noundef 1, i32 noundef %56)
-  %58 = add i32 %42, 4
-  %59 = load ptr, ptr %8, align 8
-  call void @proto_item_set_end(ptr noundef %59, ptr noundef %0, i32 noundef %58)
+parse_relop.exit:                                 ; preds = %19, %22, %26
+  %.0.i = phi ptr [ %30, %25 ], [ %20, %21 ], [ %20, %switch.lookup.i ]
+  %31 = load i32, ptr @hf_mswsp_cproprestrict_relop, align 4
+  %32 = load i8, ptr %.0.i, align 1
+  %33 = icmp eq i8 %32, 0
+  %34 = select i1 %33, ptr @.str.1169, ptr %.0.i
+  %35 = load i32, ptr %5, align 4
+  %36 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %13, i32 noundef %31, ptr noundef %0, i32 noundef %2, i32 noundef 4, ptr noundef %.0.i, ptr noundef nonnull @.str.1295, ptr noundef %34, i32 noundef %35)
+  %37 = add i32 %2, 4
+  %38 = load ptr, ptr %8, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef nonnull @.str.1287, ptr noundef %.0.i)
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %40 = call i32 (ptr, i32, ptr, ptr, ptr, ptr, ...) @parse_CFullPropSpec(ptr noundef %0, i32 noundef %37, ptr noundef %13, ptr noundef %4, ptr noundef nonnull %39, ptr noundef nonnull @.str.1288)
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %42 = call fastcc i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %40, ptr noundef %13, ptr noundef nonnull %41, ptr noundef nonnull @.str.1289)
+  %43 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef %42, i32 noundef 4, ptr noundef %4, ptr noundef nonnull @.str.1290)
+  %44 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %43)
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  store i32 %44, ptr %45, align 8
+  %46 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %43)
+  %47 = load i32, ptr @hf_mswsp_lcid, align 4
+  %48 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %13, i32 noundef %47, ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef %46, ptr noundef nonnull @.str.1317, ptr noundef nonnull @.str.83, i32 noundef %46)
+  %49 = load i32, ptr @ett_LCID, align 4
+  %50 = call ptr @proto_item_add_subtree(ptr noundef %48, i32 noundef %49)
+  %51 = load i32, ptr @hf_mswsp_lcid_langid, align 4
+  %52 = add i32 %43, 2
+  %53 = call ptr @proto_tree_add_uint(ptr noundef %50, i32 noundef %51, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef %46)
+  %54 = load i32, ptr @hf_mswsp_lcid_sortid, align 4
+  %55 = add i32 %43, 1
+  %56 = lshr i32 %46, 16
+  %57 = and i32 %56, 15
+  %58 = call ptr @proto_tree_add_uint(ptr noundef %50, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef %57)
+  %59 = add i32 %43, 4
+  %60 = load ptr, ptr %8, align 8
+  call void @proto_item_set_end(ptr noundef %60, ptr noundef %0, i32 noundef %59)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i32 %58
+  ret i32 %59
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -5446,25 +5446,25 @@ parse_CInGroupSortAggregSet_type.exit:            ; preds = %6
   %switch.idx.cast.i = zext nneg i8 %14 to i32
   %17 = load i32, ptr @hf_mswsp_cingroupsortaggregset_type, align 4
   %18 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %17, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef %switch.idx.cast.i)
-  %19 = add i32 %2, 1
+  %20 = add i32 %2, 1
   %20 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef %19, i32 noundef 4, ptr noundef %4, ptr noundef nonnull @.str.1324)
   %21 = icmp eq i8 %14, 3
-  br i1 %21, label %22, label %24
+  br i1 %21, label %24, label %26
 
-22:                                               ; preds = %parse_CInGroupSortAggregSet_type.exit
+24:                                               ; preds = %parse_CInGroupSortAggregSet_type.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %23 = call fastcc i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %20, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.1325)
+  %25 = call fastcc i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %20, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.1325)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %24
+  br label %26
 
-24:                                               ; preds = %22, %parse_CInGroupSortAggregSet_type.exit
-  %.0 = phi i32 [ %23, %22 ], [ %20, %parse_CInGroupSortAggregSet_type.exit ]
-  %25 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CSortSet(ptr noundef %0, i32 noundef %.0, ptr noundef %13, ptr noundef %4, ptr nonnull poison)
-  %26 = load ptr, ptr %7, align 8
-  call void @proto_item_set_end(ptr noundef %26, ptr noundef %0, i32 noundef %25)
+26:                                               ; preds = %24, %parse_CInGroupSortAggregSet_type.exit
+  %.0 = phi i32 [ %25, %22 ], [ %20, %parse_CInGroupSortAggregSet_type.exit ]
+  %27 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CSortSet(ptr noundef %0, i32 noundef %.0, ptr noundef %13, ptr noundef %4, ptr nonnull poison)
+  %28 = load ptr, ptr %7, align 8
+  call void @proto_item_set_end(ptr noundef %28, ptr noundef %0, i32 noundef %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %25
+  ret i32 %27
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

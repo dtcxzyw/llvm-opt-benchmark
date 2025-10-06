@@ -5002,10 +5002,10 @@ define noundef range(i8 0, 11) i8 @_ZN12tokio_quiche4quic6router25initial_packet
     i64 1, label %11
   ], !prof !513
 
-default.unreachable:                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", %1
+default.unreachable:; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", %1
   unreachable
 
-4:                                                ; preds = %1
+4:; preds = %1
   %5 = lshr i64 %2, 32
   %6 = trunc nuw i64 %5 to i32
   %spec.select43.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %6, i32 42)
@@ -5014,17 +5014,17 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   tail call void @llvm.assume(i1 %7)
   br label %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i"
 
-8:                                                ; preds = %1
+8:; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
   %10 = load i8, ptr %9, align 8, !range !514, !noalias !510, !noundef !8
   br label %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i"
 
-11:                                               ; preds = %1
+11:; preds = %1
   %12 = getelementptr i8, ptr %.val.i.i, i64 15
   %13 = load i8, ptr %12, align 8, !range !514, !noalias !510, !noundef !8
   br label %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i"
 
-"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i": ; preds = %11, %8, %4
+"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i":; preds = %11, %8, %4
   %.sroa.0.0.i.i.i = phi i8 [ %spec.select.i.i.i.i.i, %4 ], [ %10, %8 ], [ %13, %11 ]
   %14 = icmp eq i8 %.sroa.0.0.i.i.i, 40
   br i1 %14, label %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
@@ -5068,25 +5068,25 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %narrow.i.i.i = select i1 %31, i8 %30, i8 2
   switch i8 %narrow.i.i.i, label %33 [
     i8 0, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
-    i8 1, label %34
-    i8 2, label %35
-    i8 3, label %36
-    i8 4, label %37
+    i8 1, label %24
+    i8 2, label %25
+    i8 3, label %26
+    i8 4, label %27
   ]
 
-33:                                               ; preds = %29
+23:                                               ; preds = %29
   unreachable
 
-34:                                               ; preds = %29
+24:                                               ; preds = %29
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
 
-35:                                               ; preds = %29
+25:                                               ; preds = %29
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
 
-36:                                               ; preds = %29
+26:                                               ; preds = %29
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
 
-37:                                               ; preds = %29
+27:                                               ; preds = %29
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit": ; preds = %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i", %1, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", %17, %15, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", %29, %34, %35, %36, %37

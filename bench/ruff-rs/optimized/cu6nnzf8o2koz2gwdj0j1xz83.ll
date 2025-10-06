@@ -10602,7 +10602,7 @@ define noundef range(i8 0, 3) i8 @_ZN7ruff_db6system2os23detect_case_sensitivity
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he48251e7e8c2994fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %54
+  br label %48
 
 "_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17hb6cc6c4c5fa7d04aE.exit8": ; preds = %2
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -10626,7 +10626,7 @@ define noundef range(i8 0, 3) i8 @_ZN7ruff_db6system2os23detect_case_sensitivity
   %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h8afc92ed13740d28E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #28
-          to label %57 unwind label %55
+          to label %57 unwind label %49
 
 21:                                               ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17hb6cc6c4c5fa7d04aE.exit8"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
@@ -10657,12 +10657,12 @@ define noundef range(i8 0, 3) i8 @_ZN7ruff_db6system2os23detect_case_sensitivity
 28:                                               ; preds = %24
   call void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h8afc92ed13740d28E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %54
+  br label %48
 
 29:                                               ; preds = %25
   %30 = load i64, ptr %8, align 8, !range !480, !noundef !4
   %31 = icmp eq i64 %30, 2
-  br i1 %31, label %32, label %48
+  br i1 %31, label %32, label %41
 
 32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -10686,7 +10686,7 @@ default.unreachable:                              ; preds = %32
   %cond = icmp eq i64 %.mask, 8589934592
   br i1 %cond, label %_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit.thread11, label %_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit.thread
 
-38:                                               ; preds = %32
+40:                                               ; preds = %32
   %39 = lshr i64 %35, 32
   %40 = trunc nuw i64 %39 to i32
   %spec.select43.i.i.i = tail call i32 @llvm.umin.i32(i32 %40, i32 42)
@@ -10705,48 +10705,48 @@ default.unreachable:                              ; preds = %32
   %47 = load i8, ptr %46, align 8, !range !659, !noundef !4
   br label %_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit
 
-48:                                               ; preds = %29
+41:                                               ; preds = %29
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %49 = icmp eq i64 %.sroa.3.0.copyload, %.sroa.5.0.copyload
-  %. = select i1 %49, i8 2, i8 1
-  br label %50
+  %42 = icmp eq i64 %.sroa.3.0.copyload, %.sroa.5.0.copyload
+  %. = select i1 %42, i8 2, i8 1
+  br label %43
 
-50:                                               ; preds = %53, %48
-  %.sroa.0.2 = phi i8 [ %52, %53 ], [ %., %48 ]
+43:                                               ; preds = %47, %41
+  %.sroa.0.2 = phi i8 [ %46, %53 ], [ %., %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h8afc92ed13740d28E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %54
+  br label %48
 
-_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit: ; preds = %45, %42, %38
-  %.sroa.0.0.i = phi i8 [ %spec.select.i.i.i, %38 ], [ %44, %42 ], [ %47, %45 ]
-  %51 = icmp eq i8 %.sroa.0.0.i, 0
+_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit: ; preds = %45, %42, %40
+  %.sink = phi i8 [ %spec.select.i.i.i, %38 ], [ %44, %42 ], [ %47, %45 ]
+  %51 = icmp eq i8 %.sink, 0
   br i1 %51, label %_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit.thread11, label %_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit.thread
 
 _ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit.thread11: ; preds = %37, %_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit
   br label %_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit.thread
 
 _ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit.thread: ; preds = %37, %_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit, %_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit.thread11
-  %52 = phi i8 [ 1, %_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit.thread11 ], [ 0, %_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit ], [ 0, %37 ]
+  %46 = phi i8 [ 1, %_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit.thread11 ], [ 0, %_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit ], [ 0, %37 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he48251e7e8c2994fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
           to label %53 unwind label %19
 
-53:                                               ; preds = %_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit.thread
+47:                                               ; preds = %_ZN3std2io5error5Error4kind17h28e2b199d019d7baE.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %50
+  br label %43
 
-54:                                               ; preds = %50, %28, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17hb6cc6c4c5fa7d04aE.exit"
+48:                                               ; preds = %43, %28, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17hb6cc6c4c5fa7d04aE.exit"
   %.sroa.0.0 = phi i8 [ 0, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17hb6cc6c4c5fa7d04aE.exit" ], [ 0, %28 ], [ %.sroa.0.2, %50 ]
   ret i8 %.sroa.0.0
 
-55:                                               ; preds = %19
-  %56 = landingpad { ptr, i32 }
+49:                                               ; preds = %19
+  %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #29
   unreachable
 
-57:                                               ; preds = %19
+51:                                               ; preds = %19
   resume { ptr, i32 } %20
 }
 

@@ -3018,7 +3018,7 @@ _ZL9dump_violP8_IO_FILEiP10t_dr_statsb.exit67.i:  ; preds = %.noexc391, %.lr.ph.
 
 .preheader.us.us.us.i.i:                          ; preds = %.split78.us.us.i.i, %1140
   %indvars.iv118.i.i = phi i64 [ %indvars.iv.next119.i.i, %1140 ], [ 0, %.split78.us.us.i.i ]
-  %switch.idx.cast.i.i = shl nuw nsw i64 %indvars.iv118.i.i, 2
+  %switch.idx.cast = shl nuw nsw i64 %indvars.iv118.i.i, 2
   br label %1144
 
 1135:                                             ; preds = %._crit_edge.split.us.us.us.us.i.i
@@ -3046,10 +3046,10 @@ _ZL9dump_violP8_IO_FILEiP10t_dr_statsb.exit67.i:  ; preds = %.noexc391, %.lr.ph.
   %1146 = getelementptr inbounds nuw i8, ptr %1145, i64 4
   %1147 = load i8, ptr %1146, align 4, !tbaa !284, !range !241, !noundef !242
   %1148 = trunc nuw i8 %1147 to i1
-  br i1 %1148, label %switch.lookup.i.i, label %1156
+  br i1 %1148, label %switch.lookup, label %1156
 
-switch.lookup.i.i:                                ; preds = %1144
-  %1149 = getelementptr inbounds nuw i8, ptr %1145, i64 %switch.idx.cast.i.i
+switch.lookup:                                    ; preds = %1144
+  %1149 = getelementptr inbounds nuw i8, ptr %1145, i64 %switch.idx.cast
   %1150 = getelementptr inbounds nuw i8, ptr %1149, i64 24
   %.0.us.us.us.us.i.i = load float, ptr %1150, align 4, !tbaa !95
   %1151 = fcmp olt float %.05964.us.us.us.us.i.i, %.0.us.us.us.us.i.i
@@ -3061,7 +3061,7 @@ switch.lookup.i.i:                                ; preds = %1144
   %1155 = add nsw i32 %.04667.us.us.us.us.i.i, 1
   br label %1156
 
-1156:                                             ; preds = %switch.lookup.i.i, %1144
+1156:                                             ; preds = %switch.lookup, %1144
   %.1.us.us.us.us.i.i = phi float [ %.sroa.speculated.us.us.us.us.i.i, %switch.lookup.i.i ], [ %.05964.us.us.us.us.i.i, %1144 ]
   %.151.us.us.us.us.i.i = phi float [ %1154, %switch.lookup.i.i ], [ %.05065.us.us.us.us.i.i, %1144 ]
   %.2.us.us.us.us.i.i = phi i32 [ %.149.us.us.us.us.i.i, %switch.lookup.i.i ], [ %.04866.us.us.us.us.i.i, %1144 ]

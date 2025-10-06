@@ -26104,11 +26104,11 @@ define hidden { i64, ptr } @"_ZN8chalk_ir4fold12boring_impls97_$LT$impl$u20$chal
   invoke void %9(ptr noundef nonnull align 1 %2)
           to label %12 unwind label %10
 
-10:                                               ; preds = %.invoke, %29, %34, %12, %5
+10:                                               ; preds = %.invoke, %.thread, %34, %12, %5
   %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr79drop_in_place$LT$chalk_ir..GenericArgData$LT$hir_ty..interner..Interner$GT$$GT$17h0ed9359e68b40390E.llvm.15963164601899926706"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
-          to label %"_ZN4core3ptr75drop_in_place$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$GT$17h22b6ccdbb4f1cea4E.exit" unwind label %37
+          to label %"_ZN4core3ptr75drop_in_place$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$GT$17h22b6ccdbb4f1cea4E.exit" unwind label %35
 
 12:                                               ; preds = %5
   %13 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
@@ -26132,21 +26132,21 @@ default.unreachable:                              ; preds = %14
   %18 = load ptr, ptr %16, align 8, !alias.scope !6839, !nonnull !11, !noundef !11
   %19 = atomicrmw add ptr %18, i64 1 monotonic, align 8, !noalias !6839
   %20 = icmp slt i64 %19, 0
-  br i1 %20, label %.invoke, label %29
+  br i1 %20, label %.invoke, label %.thread
 
 21:                                               ; preds = %14
   call void @llvm.experimental.noalias.scope.decl(metadata !6840)
   %22 = load ptr, ptr %16, align 8, !alias.scope !6843, !nonnull !11, !noundef !11
   %23 = atomicrmw add ptr %22, i64 1 monotonic, align 8, !noalias !6843
   %24 = icmp slt i64 %23, 0
-  br i1 %24, label %.invoke, label %29
+  br i1 %24, label %.invoke, label %.thread
 
 25:                                               ; preds = %14
   call void @llvm.experimental.noalias.scope.decl(metadata !6844)
   %26 = load ptr, ptr %16, align 8, !alias.scope !6847, !nonnull !11, !noundef !11
   %27 = atomicrmw add ptr %26, i64 1 monotonic, align 8, !noalias !6847
   %28 = icmp slt i64 %27, 0
-  br i1 %28, label %.invoke, label %29
+  br i1 %28, label %.invoke, label %.thread
 
 .invoke:                                          ; preds = %25, %21, %17
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #43
@@ -26155,11 +26155,11 @@ default.unreachable:                              ; preds = %14
 .cont:                                            ; preds = %.invoke
   unreachable
 
-29:                                               ; preds = %25, %21, %17
-  %.sroa.4.0.i = phi ptr [ %18, %17 ], [ %22, %21 ], [ %26, %25 ]
+.thread:                                          ; preds = %25, %21, %17
+  %.sroa.4.0.i12 = phi ptr [ %18, %17 ], [ %22, %21 ], [ %26, %25 ]
   %switch.idx.mult.i = shl nuw nsw i64 %15, 3
-  %30 = getelementptr i8, ptr %3, i64 %switch.idx.mult.i
-  %31 = getelementptr i8, ptr %30, i64 32
+  %29 = getelementptr i8, ptr %3, i64 %switch.idx.mult.i
+  %31 = getelementptr i8, ptr %.thread, i64 32
   %32 = load ptr, ptr %31, align 8, !invariant.load !11, !alias.scope !6848, !nonnull !11
   %33 = invoke noundef nonnull ptr %32(ptr noundef nonnull align 1 %2, ptr noundef nonnull %.sroa.4.0.i, i32 noundef %4)
           to label %34 unwind label %10
@@ -26172,8 +26172,8 @@ default.unreachable:                              ; preds = %14
   call void @"_ZN4core3ptr79drop_in_place$LT$chalk_ir..GenericArgData$LT$hir_ty..interner..Interner$GT$$GT$17h0ed9359e68b40390E.llvm.15963164601899926706"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
   ret { i64, ptr } %35
 
-37:                                               ; preds = %10
-  %38 = landingpad { ptr, i32 }
+35:                                               ; preds = %10
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #45
   unreachable
